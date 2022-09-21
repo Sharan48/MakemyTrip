@@ -12,45 +12,58 @@ public class Homepage {
 	
 	Action action=new Action();
 	
-	@FindBy(xpath="(//input[@type='text'])[1]")
+	@FindBy(xpath="//span[.='From']")
 	private WebElement from;
 	
-	@FindBy (xpath="(//input[@type='text'])[2]")
+	@FindBy(xpath="//p[.='Mumbai, India']/..")
+	private WebElement fromcity;
+	
+	@FindBy (xpath="//span[.='To']")
 	private WebElement to;
 	
-	@FindBy(xpath="//span[.='DEPARTURE']")
+	@FindBy(xpath="//p[.='New Delhi, India']/..")
+	private WebElement tocity;
+	
+	@FindBy(xpath="//span[.='DEPARTURE']/../..")
 	private WebElement departure;
 	
-	@FindBy(xpath="//div[@aria-label='Wed Sep 21 2022']")
+	@FindBy(xpath="//div[@aria-label='Fri Sep 23 2022']")
 	private WebElement date;
 	
-	@FindBy(xpath ="//a[.='Search']")
+	@FindBy(xpath ="//p[@data-cy=\\\"submit\\\"]/a")
 	private WebElement search;
 	
-	public Homepage() {
+	public Homepage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void enterFromCityName() {
-		action.type(from, "New Dehli");
+	public String getMakeMyTripTitle() {
+		String title = driver.getTitle();
+		return title;
+	}
+	
+	public void enterFromCityName() throws InterruptedException {
+		action.waitAndClick(from);
+		fromcity.click();
 		
 	}
 	
-	public void enterToCityName() {
-		action.type(to, "Bengaluru");
+	public void enterToCityName() throws InterruptedException {
+		action.waitAndClick(to);
+		tocity.click();
 	}
 	
 	public void clickOnDeparture() {
-		action.JSClick(driver, departure);
+		departure.click();
 	}
 	
 	public void clickOnDate() {
-		action.JSClick(driver, date);
+		date.click();
 	}
 	
-	public FlightsFromNewDehliToBengaluruPage clickOnSearch() {
-		action.JSClick(driver, search);
-		return new FlightsFromNewDehliToBengaluruPage();
+	public FlightsFromNewDehliToBengaluruPage clickOnSearch() throws InterruptedException{
+		action.waitAndClick(search);
+		return new FlightsFromNewDehliToBengaluruPage(driver);
 	}
 
 }

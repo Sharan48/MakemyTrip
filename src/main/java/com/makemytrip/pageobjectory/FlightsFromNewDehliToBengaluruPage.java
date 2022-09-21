@@ -19,19 +19,19 @@ public class FlightsFromNewDehliToBengaluruPage {
 	@FindBy(xpath="(//button[.='Book Now'])[1]")
 	private WebElement booknow;
 	
-	public FlightsFromNewDehliToBengaluruPage() {
+	public FlightsFromNewDehliToBengaluruPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
 	
-	public void clickOnViewPrice() {
+	public void clickOnViewPrice() throws InterruptedException {
 		
-		action.JSClick(driver, viewprice);		
+		action.waitAndClick(viewprice);		
 	}
 	
-	public CompleteYourBooking clickOnBooknow() {
-		action.JSClick(driver, booknow);
-		return new CompleteYourBooking();
+	public CompleteYourBooking clickOnBooknow() throws InterruptedException {
+		action.waitAndClick(booknow);
+		return new CompleteYourBooking(driver);
 	}
 
 }

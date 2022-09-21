@@ -19,17 +19,17 @@ public class SeatBookPage {
 	@FindBy(xpath="//button[.='Continue']")
 	private WebElement continuebutton;
 	
-	public SeatBookPage() {
+	public SeatBookPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void clickOnSeat() {
-		action.JSClick(driver, seat);
+	public void clickOnSeat() throws InterruptedException {
+		action.waitAndClick(seat);
 		
 	}
 
-	public void clickOnContinue() {
-		action.JSClick(driver, continuebutton);
+	public void clickOnContinue() throws InterruptedException {
+		action.waitAndClick(continuebutton);
 		Alert accept = driver.switchTo().alert();
 		accept.accept();
 	}

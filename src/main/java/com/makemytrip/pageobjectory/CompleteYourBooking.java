@@ -37,7 +37,7 @@ public class CompleteYourBooking {
 	@FindBy(xpath="//button[.='Continue']")
 	private WebElement contnue;
 	
-	public CompleteYourBooking() {
+	public CompleteYourBooking(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -68,7 +68,7 @@ public class CompleteYourBooking {
 		Alert accept = driver.switchTo().alert();
 		accept.accept();
 		accept.accept();
-		return new SeatBookPage();
+		return new SeatBookPage(driver);
 	}
 
 }
