@@ -1,6 +1,5 @@
 package com.makemytrip.pageobjectory;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +29,5 @@ public class SeatBookPage {
 
 	public void clickOnContinue() throws InterruptedException {
 		action.waitAndClick(continuebutton);
-		Alert accept = driver.switchTo().alert();
-		accept.accept();
 	}
 }

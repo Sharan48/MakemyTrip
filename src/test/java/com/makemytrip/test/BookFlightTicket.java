@@ -15,7 +15,7 @@ import com.makemytrip.utility.Action;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Selectcity {
+public class BookFlightTicket {
 	public static void main(String[] args) throws InterruptedException {
 		Action action=new Action();
 		WebDriver driver;

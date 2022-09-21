@@ -1,7 +1,5 @@
 package com.makemytrip.utility;
 
-import javax.swing.text.Document;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,6 +25,7 @@ public class Action {
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		executor.executeScript("document.getElementById(id').value='someValue';");
 	}
+	
 	public void waitforElement(WebDriver driver,WebElement element){
 		WebDriverWait wait=new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -53,6 +52,7 @@ public class Action {
 		}
 		return flag;
 	}
+	
 	public void waitAndClick(WebElement element) throws InterruptedException{
 		int i=0;
 		while(i<5)

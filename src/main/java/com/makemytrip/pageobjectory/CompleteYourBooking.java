@@ -1,6 +1,5 @@
 package com.makemytrip.pageobjectory;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -65,9 +64,6 @@ public class CompleteYourBooking {
 	
 	public SeatBookPage clickOnContinue() {
 		action.JSClick(driver, contnue);
-		Alert accept = driver.switchTo().alert();
-		accept.accept();
-		accept.accept();
 		return new SeatBookPage(driver);
 	}
 
