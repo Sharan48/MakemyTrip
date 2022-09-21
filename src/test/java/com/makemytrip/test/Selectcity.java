@@ -1,4 +1,4 @@
-package com.makemytrip.baseclass;
+package com.makemytrip.test;
 
 import java.util.ArrayList;
 import java.util.Set;
